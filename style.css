@@ -1,0 +1,4024 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ========== ELEGANT BACKGROUND ========== */
+.stars, .stars2, .stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stars {
+    background-image: 
+        radial-gradient(circle at 15% 25%, rgba(248, 131, 121, 0.06) 0%, transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(255, 166, 158, 0.05) 0%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(123, 165, 158, 0.04) 0%, transparent 40%);
+    opacity: 1;
+}
+
+.stars2 {
+    background-image: 
+        radial-gradient(circle at 30% 60%, rgba(248, 131, 121, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 70% 30%, rgba(255, 166, 158, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(123, 165, 158, 0.06) 0%, transparent 38%);
+    opacity: 1;
+    animation: floatGlow 20s ease-in-out infinite;
+}
+
+.stars3 {
+    background-image: 
+        radial-gradient(circle at 60% 40%, rgba(248, 131, 121, 0.03) 0%, transparent 25%),
+        radial-gradient(circle at 40% 70%, rgba(123, 165, 158, 0.03) 0%, transparent 28%);
+    opacity: 1;
+    animation: floatGlow 25s ease-in-out infinite reverse;
+}
+
+@keyframes floatGlow {
+    0%, 100% { 
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateY(-20px);
+        opacity: 1;
+    }
+}
+
+/* ========== FORM PAGE STYLES ========== */
+.form-page {
+    background: #F5F0EB;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+
+.form-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 30% 40%, rgba(248, 131, 121, 0.06), transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(255, 166, 158, 0.06), transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.form-container {
+    background: #FFFBF7;
+    backdrop-filter: blur(10px);
+    border-radius: 0;
+    padding: 60px 50px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+    animation: fadeInUp 1s ease;
+    border: none;
+    border-top: 3px solid #8B1A1D;
+    overflow: hidden;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ornament-top, .ornament-bottom {
+    width: 100%;
+    margin: 0 auto 30px;
+    opacity: 0.8;
+}
+
+.ornament-bottom {
+    margin: 30px auto 0;
+}
+
+.rings-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.ring {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #8B1A1D;
+    border-radius: 50%;
+    position: relative;
+    animation: ringFloat 3s ease-in-out infinite;
+}
+
+.ring::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 8px;
+    background: #8B1A1D;
+    border-radius: 50% 50% 0 0;
+}
+
+.ring1 {
+    animation-delay: 0s;
+    z-index: 1;
+}
+
+.ring2 {
+    animation-delay: 0.5s;
+    margin-left: -20px;
+    border-color: #D4AF37;
+    z-index: 2;
+}
+
+.ring2::before {
+    background: #D4AF37;
+}
+
+@keyframes ringFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.elegant-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #2C2C2C;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #999;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.couple-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.bride-name, .groom-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #2C2C2C;
+    font-style: italic;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.ampersand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #8B1A1D;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.invitation-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #999;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.name-form {
+    width: 100%;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* Side Selection */
+.side-selection {
+    margin-bottom: 35px;
+}
+
+.selection-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #999;
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.side-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.side-option {
+    flex: 1;
+    max-width: 200px;
+}
+
+.side-option input[type="radio"] {
+    display: none;
+}
+
+.option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 20px;
+    background: white;
+    border: 2px solid #E5E5E5;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.side-option input[type="radio"]:checked + .option-card {
+    border-color: #8B1A1D;
+    background: linear-gradient(135deg, rgba(248, 131, 121, 0.05), rgba(255, 166, 158, 0.05));
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(248, 131, 121, 0.2);
+}
+
+.bride-option input[type="radio"]:checked + .option-card {
+    border-color: #8B1A1D;
+}
+
+.groom-option input[type="radio"]:checked + .option-card {
+    border-color: #D4AF37;
+    background: linear-gradient(135deg, rgba(123, 165, 158, 0.05), rgba(155, 196, 190, 0.05));
+    box-shadow: 0 5px 20px rgba(123, 165, 158, 0.2);
+}
+
+.option-card:hover {
+    border-color: #8B1A1D;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.option-icon {
+    font-size: 2rem;
+}
+
+.option-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+    border: none;
+    border-bottom: 1px solid #E5E5E5;
+    background: transparent;
+    outline: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: #2C2C2C;
+    font-style: italic;
+}
+
+.input-wrapper input:focus {
+    border-bottom-color: #2C2C2C;
+}
+
+.input-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 1px;
+    background: #2C2C2C;
+    transition: transform 0.3s ease;
+}
+
+.input-wrapper input:focus + .input-underline {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: #2C2C2C;
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    background: #8B1A1D;
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover .btn-icon {
+    transform: translateX(5px);
+}
+
+/* Floating Flowers */
+.floating-flowers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.flower {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: float 15s infinite ease-in-out;
+}
+
+.flower1 { top: 10%; left: 10%; animation-delay: 0s; }
+.flower2 { top: 20%; right: 15%; animation-delay: 2s; }
+.flower3 { top: 60%; left: 5%; animation-delay: 4s; }
+.flower4 { top: 70%; right: 10%; animation-delay: 1s; }
+.flower5 { top: 40%; left: 15%; animation-delay: 3s; }
+.flower6 { top: 80%; right: 20%; animation-delay: 5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(-10px) rotate(-5deg); }
+    75% { transform: translateY(-30px) rotate(3deg); }
+}
+
+/* ========== INVITATION PAGE STYLES ========== */
+.invitation-page {
+    background: linear-gradient(135deg, #FFF9F5 0%, #F8F3EF 50%, #FFF9F5 100%);
+    height: 100vh;
+    overflow: hidden;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.invitation-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 35%, rgba(248, 131, 121, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 75% 65%, rgba(123, 165, 158, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(255, 166, 158, 0.06) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.invitation-container {
+    max-width: 1000px;
+    width: 100%;
+    height: 95vh;
+    position: relative;
+    z-index: 10;
+    animation: fadeInScale 1.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.slides-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.invitation-card {
+    background: linear-gradient(135deg, #FFFEF9 0%, #FFFFFF 50%, #FFFEF9 100%);
+    border-radius: 25px;
+    padding: 25px 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 
+                0 2px 8px rgba(0, 0, 0, 0.06);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.invitation-card.active {
+    display: flex;
+    animation: slowFadeIn 1.5s ease-in-out forwards;
+}
+
+/* Conditional slides - hide based on side */
+body[data-side="groom"] .slide[data-show-for="bride"] {
+    display: none !important;
+}
+
+body[data-side="bride"] .slide[data-show-for="groom"] {
+    display: none !important;
+}
+
+/* SVG Icon Styling */
+.svg-icon {
+    display: inline-block;
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+.icon-small {
+    width: 18px;
+    height: 18px;
+}
+
+.icon-medium {
+    width: 28px;
+    height: 28px;
+}
+
+.icon-large {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-xlarge {
+    width: 48px;
+    height: 48px;
+}
+
+.inline-icon {
+    margin: 0 4px;
+    vertical-align: text-bottom;
+}
+
+/* Icon Colors */
+.special-badge .svg-icon {
+    fill: #8B1A1D;
+}
+
+.ceremony-icon .svg-icon {
+    fill: #8B1A1D;
+}
+
+.sangeet-card .ceremony-icon .svg-icon {
+    fill: #D4AF37;
+}
+
+.info-icon .svg-icon {
+    fill: #8B1A1D;
+}
+
+.mehandi-venue-info .info-icon .svg-icon {
+    fill: #D4AF37;
+}
+
+.venue-icon .svg-icon {
+    fill: #8B1A1D;
+}
+
+.info-icon-circle .svg-icon {
+    fill: #8B1A1D;
+}
+
+.contact-icon .svg-icon {
+    fill: #D4AF37;
+}
+
+.from-icon .svg-icon {
+    fill: #8B1A1D;
+}
+
+.daadke .from-icon .svg-icon {
+    fill: #D4AF37;
+}
+
+.heart-emoji .svg-icon,
+.dec-heart .svg-icon {
+    fill: #8B1A1D;
+    animation: heartPulse 1.5s ease-in-out infinite;
+}
+
+.note-icon .svg-icon {
+    fill: #8B1A1D;
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes slowFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Slide Navigation */
+.slide-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 100;
+    margin-bottom: 10px;
+}
+
+.nav-arrow {
+    background: white;
+    border: 1px solid #E5E5E5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #8B1A1D;
+    cursor: pointer;
+    transition: all 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prev-slide:hover {
+    background: #D4AF37;
+    color: white;
+    box-shadow: 0 4px 12px rgba(123, 165, 158, 0.3);
+}
+
+.next-slide:hover {
+    background: #8B1A1D;
+    color: white;
+    box-shadow: 0 4px 12px rgba(248, 131, 121, 0.3);
+}
+
+.slide-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #E5E5E5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: linear-gradient(90deg, #8B1A1D, #D4AF37);
+    width: 30px;
+    border-radius: 5px;
+}
+
+.dot:hover {
+    background: #8B1A1D;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.header-ornament {
+    margin-bottom: 10px;
+}
+
+.ornamental-flourish {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.flourish-symbol {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    animation: twinkleFlourish 3s ease-in-out infinite;
+}
+
+@keyframes twinkleFlourish {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+.invitation-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.dear-guest {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #999;
+    margin-bottom: 5px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.guest-name-highlight {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    display: inline-block;
+    font-style: italic;
+}
+
+/* Side-specific styling */
+body[data-side="bride"] .guest-name-highlight {
+    color: #8B1A1D;
+    background: none;
+    -webkit-text-fill-color: #8B1A1D;
+}
+
+body[data-side="groom"] .guest-name-highlight {
+    color: #D4AF37;
+    background: none;
+    -webkit-text-fill-color: #D4AF37;
+}
+
+@keyframes guestNamePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.honor-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #999;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.card-body {
+    padding: 3px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.at-the {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    color: #999;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.main-couple-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.bride-section, .groom-section {
+    text-align: center;
+    position: relative;
+}
+
+.couple-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+    position: relative;
+    display: inline-block;
+    color: #2C2C2C;
+    font-style: italic;
+}
+
+.bride-section .role-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #8B1A1D;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.groom-section .role-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #D4AF37;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.couple-name.bride, .couple-name.groom {
+    color: #2C2C2C;
+}
+
+.hearts-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.simple-ampersand {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.heart-container {
+    position: relative;
+    width: 35px;
+    height: 35px;
+}
+
+.heart {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #8B1A1D;
+    transform: rotate(-45deg);
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #8B1A1D;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -17.5px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 17.5px;
+}
+
+.heart-pulse {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border: 3px solid #F88379;
+    transform: rotate(-45deg);
+    border-radius: 0;
+    animation: pulse 1.5s ease-out infinite;
+    opacity: 0;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: rotate(-45deg) scale(1); }
+    10%, 30% { transform: rotate(-45deg) scale(1.1); }
+    20%, 40% { transform: rotate(-45deg) scale(1); }
+}
+
+@keyframes pulse {
+    0% {
+        transform: rotate(-45deg) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(-45deg) scale(2);
+        opacity: 0;
+    }
+}
+
+/* Event Details */
+.event-details {
+    margin: 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Simplified Calendar Card */
+.calendar-page {
+    background: linear-gradient(135deg, #FFFFFF, #FFFEF9);
+    border-radius: 12px;
+    padding: 10px 20px;
+    box-shadow: 0 8px 25px rgba(139, 26, 29, 0.12);
+    text-align: center;
+    position: relative;
+    border: 2px solid rgba(139, 26, 29, 0.1);
+}
+
+.calendar-header {
+    border-bottom: 1px solid rgba(139, 26, 29, 0.12);
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.calendar-month {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #8B1A1D;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.calendar-year {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.6rem;
+    color: #999;
+    font-weight: 500;
+}
+
+.calendar-day-huge {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    line-height: 1;
+    margin: 2px 0;
+}
+
+.calendar-time {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+/* Compact Countdown */
+.countdown-section {
+    text-align: center;
+    margin: 8px 0;
+    padding: 0;
+}
+
+.countdown-creative {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.flip-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.flip-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+}
+
+.flip-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.5rem;
+    color: #999;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.flip-separator {
+    font-size: 1.2rem;
+    color: #D4AF37;
+    font-weight: 300;
+    margin: 0 2px;
+    margin-bottom: 12px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Quote Section */
+.quote-section {
+    text-align: center;
+    margin: 4px 0;
+    padding: 4px 0;
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+/* RSVP Section */
+.rsvp-section {
+    text-align: center;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.rsvp-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: #999;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.family-names {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: #2C2C2C;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.card-footer {
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* ========== SLIDE 1 - FORM STYLE DESIGN ========== */
+.slide-ornament-top, .slide-ornament-bottom {
+    width: 100%;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+.slide-ornament-top svg, .slide-ornament-bottom svg {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.slide-main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.slide-elegant-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.slide-dear-guest {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 5px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.slide-guest-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-style: italic;
+    display: inline-block;
+}
+
+.slide-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.slide-couple-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.slide-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #2C2C2C;
+}
+
+.slide-ampersand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #8B1A1D;
+    font-weight: 400;
+}
+
+.slide-event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.info-icon-text {
+    font-size: 1.2rem;
+}
+
+.info-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.slide-countdown {
+    margin: 10px 0;
+}
+
+.countdown-intro {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.count-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.count-num {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+}
+
+.count-lbl {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.5rem;
+    color: #999;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+
+.count-sep {
+    font-size: 1.5rem;
+    color: #D4AF37;
+    margin: 0 2px;
+    margin-bottom: 10px;
+}
+
+
+/* ========== FAMILY DETAILS PAGE ========== */
+.family-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 8px 0;
+}
+
+.family-intro {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.family-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.family-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    background: linear-gradient(90deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.family-unity-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 25px;
+    flex: 1;
+    position: relative;
+}
+
+.family-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.family-emblem {
+    margin-bottom: 12px;
+}
+
+.bride-side .emblem-circle {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #F88379, #FFA69E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(248, 131, 121, 0.3);
+    animation: pulseGlowCoral 3s ease-in-out infinite;
+}
+
+.groom-side .emblem-circle {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #7BA59E, #9BC4BE);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(123, 165, 158, 0.3);
+    animation: pulseGlowTeal 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlowCoral {
+    0%, 100% { box-shadow: 0 8px 20px rgba(248, 131, 121, 0.3); }
+    50% { box-shadow: 0 12px 30px rgba(248, 131, 121, 0.5); }
+}
+
+@keyframes pulseGlowTeal {
+    0%, 100% { box-shadow: 0 8px 20px rgba(123, 165, 158, 0.3); }
+    50% { box-shadow: 0 12px 30px rgba(123, 165, 158, 0.5); }
+}
+
+.emblem-initial {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.side-family-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #2C2C2C;
+    font-weight: 600;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.bride-side .side-family-name::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #8B1A1D;
+}
+
+.groom-side .side-family-name::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: #D4AF37;
+}
+
+.family-members-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.member-group {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #F5F5F5;
+    transition: all 0.3s ease;
+}
+
+.bride-side .member-group:hover {
+    box-shadow: 0 4px 15px rgba(248, 131, 121, 0.15);
+    border-color: #8B1A1D;
+}
+
+.groom-side .member-group:hover {
+    box-shadow: 0 4px 15px rgba(123, 165, 158, 0.15);
+    border-color: #D4AF37;
+}
+
+.bride-side .member-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #8B1A1D;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.groom-side .member-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #D4AF37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.member-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    color: #333;
+    margin: 2px 0;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.bride-side .family-tree-line {
+    width: 2px;
+    height: 12px;
+    background: linear-gradient(to bottom, #F88379, transparent);
+    margin: 0 auto;
+}
+
+.groom-side .family-tree-line {
+    width: 2px;
+    height: 12px;
+    background: linear-gradient(to bottom, #7BA59E, transparent);
+    margin: 0 auto;
+}
+
+.bride-highlight {
+    background: linear-gradient(135deg, rgba(248, 131, 121, 0.1), rgba(255, 166, 158, 0.05));
+    border: 2px solid #F88379;
+    position: relative;
+    overflow: hidden;
+}
+
+.groom-highlight {
+    background: linear-gradient(135deg, rgba(123, 165, 158, 0.1), rgba(155, 196, 190, 0.05));
+    border: 2px solid #7BA59E;
+    position: relative;
+    overflow: hidden;
+}
+
+.bride-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(248, 131, 121, 0.3), transparent);
+    animation: shimmerCoral 3s infinite;
+}
+
+.groom-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(123, 165, 158, 0.3), transparent);
+    animation: shimmerTeal 3s infinite;
+}
+
+@keyframes shimmerCoral {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes shimmerTeal {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.highlight-badge {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.highlight-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #2C2C2C;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.unity-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 80px;
+}
+
+.infinity-symbol {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rotate360 10s linear infinite;
+}
+
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.unity-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: #2C2C2C;
+    text-align: center;
+    line-height: 1.3;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.unity-hearts {
+    display: flex;
+    gap: 5px;
+}
+
+.small-heart {
+    font-size: 1.5rem;
+    animation: heartFloat 2s ease-in-out infinite;
+}
+
+@keyframes heartFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.family-blessing {
+    text-align: center;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.blessing-ornament {
+    font-size: 0.9rem;
+    background: linear-gradient(90deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
+}
+
+.blessing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Single Side Family Layout (Conditional) */
+.family-single-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.family-emblem-large {
+    margin-bottom: 3px;
+}
+
+.emblem-circle-large {
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(248, 131, 121, 0.4);
+    animation: pulseGlowBoth 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlowBoth {
+    0%, 100% { 
+        box-shadow: 0 10px 30px rgba(248, 131, 121, 0.4);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 15px 40px rgba(123, 165, 158, 0.5);
+        transform: scale(1.05);
+    }
+}
+
+.emblem-initial-large {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+}
+
+.family-tree-vertical {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.generation-box {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 2px solid #F5F5F5;
+    text-align: center;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.generation-box:hover {
+    box-shadow: 0 6px 20px rgba(248, 131, 121, 0.15);
+    border-color: #8B1A1D;
+    transform: translateY(-2px);
+}
+
+.generation-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.member-names {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.member-name-large {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #2C2C2C;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.generation-connector {
+    position: relative;
+    height: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.connector-line {
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #8B1A1D, #D4AF37);
+    position: relative;
+}
+
+.connector-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bride-special {
+    background: linear-gradient(135deg, rgba(248, 131, 121, 0.1), rgba(255, 166, 158, 0.05));
+    border-color: #8B1A1D;
+    border-width: 3px;
+}
+
+.groom-special {
+    background: linear-gradient(135deg, rgba(123, 165, 158, 0.1), rgba(155, 196, 190, 0.05));
+    border-color: #D4AF37;
+    border-width: 3px;
+}
+
+.special-badge {
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.bride-name-display, .groom-name-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 4px;
+}
+
+.special-subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    color: #666;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* ========== MEHANDI & SANGEET PAGE - INVITATION STYLE ========== */
+.mehandi-slide {
+    background: #FFFEF9;
+    border-image: linear-gradient(135deg, #8B1A1D, #D4AF37, #8B1A1D) 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Folk Dancers Background */
+.folk-dancers-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.12;
+}
+
+.dancer-left, .dancer-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.dancer-left {
+    left: -20px;
+}
+
+.dancer-right {
+    right: -20px;
+}
+
+.dancer-svg {
+    width: 80px;
+    height: 80px;
+    fill: #8B1A1D;
+    animation: dancerSway 3s ease-in-out infinite;
+}
+
+.dancer-delayed {
+    animation-delay: 1.5s;
+    fill: #D4AF37;
+}
+
+@keyframes dancerSway {
+    0%, 100% {
+        transform: rotate(-5deg) translateX(0);
+    }
+    25% {
+        transform: rotate(5deg) translateX(5px);
+    }
+    50% {
+        transform: rotate(-5deg) translateX(0);
+    }
+    75% {
+        transform: rotate(5deg) translateX(-5px);
+    }
+}
+
+.mehandi-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 10px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.mehandi-header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.mehandi-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.mehandi-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.mehandi-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.mehandi-dual-ceremony {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.ceremony-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    flex: 1;
+    max-width: 140px;
+}
+
+.ceremony-card:hover {
+    transform: translateY(-3px);
+}
+
+.mehandi-card {
+    border-top: 4px solid #F88379;
+}
+
+.sangeet-card {
+    border-top: 4px solid #7BA59E;
+}
+
+.ceremony-icon {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+}
+
+.ceremony-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #2C2C2C;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.ceremony-tagline {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    color: #999;
+    font-style: italic;
+}
+
+.ceremony-divider {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #8B1A1D;
+    font-weight: 300;
+}
+
+.mehandi-couple-section {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.mehandi-join-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.mehandi-couple-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.mehandi-event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.mehandi-date-time, .mehandi-venue-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(248, 131, 121, 0.05), rgba(123, 165, 158, 0.05));
+    padding: 12px 15px;
+    border-radius: 10px;
+    border-left: 3px solid #F88379;
+}
+
+.mehandi-venue-info {
+    border-left-color: #D4AF37;
+}
+
+.info-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #2C2C2C;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.info-address {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+.mehandi-note {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(248, 131, 121, 0.12);
+}
+
+.note-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: #8B1A1D;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.mehandi-footer {
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* ========== HALDI PAGE - INVITATION STYLE ========== */
+.haldi-slide {
+    background: #FFFEF5;
+    border-image: linear-gradient(135deg, #F4D03F, #F39C12, #8B1A1D, #D4AF37) 1;
+}
+
+.haldi-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.haldi-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.haldi-flourish {
+    color: #F4D03F;
+}
+
+.haldi-ceremony-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: #D4A017;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.haldi-ceremony-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.haldi-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.haldi-occasion-text {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.haldi-invite-line {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+.haldi-couple-names {
+    text-align: center;
+    margin: 12px 0;
+}
+
+.haldi-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    background: linear-gradient(135deg, #F4D03F, #F39C12);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.haldi-event-details {
+    background: linear-gradient(135deg, rgba(244, 208, 63, 0.08), rgba(243, 156, 18, 0.05));
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid rgba(244, 208, 63, 0.3);
+    margin: 12px 0;
+}
+
+.haldi-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.info-emoji {
+    font-size: 1.5rem;
+}
+
+.info-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #2C2C2C;
+    font-weight: 600;
+}
+
+.haldi-divider-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #F4D03F, transparent);
+    margin: 12px auto;
+}
+
+.haldi-venue-section {
+    text-align: center;
+}
+
+.venue-label-haldi {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.venue-name-haldi {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #D4A017;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.venue-address-haldi {
+    margin-top: 8px;
+}
+
+.venue-address-haldi p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    margin: 3px 0;
+    line-height: 1.5;
+}
+
+.haldi-blessing {
+    text-align: center;
+    margin: 12px 0;
+    padding: 12px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(244, 208, 63, 0.15);
+}
+
+.blessing-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #F39C12;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.haldi-footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ========== VENUE PAGE ========== */
+.venue-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.venue-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.venue-icon {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.venue-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.venue-main {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.venue-type-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.venue-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.venue-accent-line {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #8B1A1D, #D4AF37);
+    margin: 0 auto 12px;
+}
+
+.address-section {
+    margin: 10px 0;
+}
+
+.address-line {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.venue-details-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.venue-info-card {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #F5F5F5;
+    min-width: 110px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.venue-info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(248, 131, 121, 0.15);
+}
+
+.venue-info-card:first-child {
+    border-top: 3px solid #8B1A1D;
+}
+
+.venue-info-card:last-child {
+    border-top: 3px solid #7BA59E;
+}
+
+.info-icon-circle {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.info-card-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.info-card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #2C2C2C;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.info-card-year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.venue-footer {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.dress-code {
+    background: #FAF8F5;
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.dress-code-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.dress-code-value {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.venue-note {
+    margin-top: 10px;
+}
+
+.venue-note p {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* ========== RSVP PAGE ========== */
+.rsvp-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.rsvp-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.rsvp-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.rsvp-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.rsvp-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.rsvp-message {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.rsvp-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #2C2C2C;
+    font-style: italic;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.rsvp-intro-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.rsvp-contact-section {
+    margin: 20px 0;
+}
+
+.contact-label-wrapper {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contact-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.contact-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #8B1A1D, #D4AF37);
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: linear-gradient(135deg, rgba(248, 131, 121, 0.08), rgba(123, 165, 158, 0.08));
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid rgba(248, 131, 121, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(248, 131, 121, 0.2);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    animation: ringBell 2s ease-in-out infinite;
+}
+
+@keyframes ringBell {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(-10deg); }
+    20%, 40% { transform: rotate(10deg); }
+}
+
+.contact-details {
+    text-align: left;
+}
+
+.contact-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2C2C2C;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.contact-instruction {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.rsvp-note-box {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #F5F5F5;
+}
+
+.note-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.note-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #2C2C2C;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.rsvp-footer {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 300;
+}
+
+.couple-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* ========== REGARDS PAGE ========== */
+.regards-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.regards-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.regards-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.regards-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.regards-message {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.regards-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #2C2C2C;
+    font-style: italic;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.regards-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.regards-from-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.from-group {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    min-width: 150px;
+    transition: all 0.3s ease;
+}
+
+.from-group:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.naanke {
+    border-top: 4px solid #F88379;
+}
+
+.daadke {
+    border-top: 4px solid #7BA59E;
+}
+
+.from-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.from-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    color: #2C2C2C;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.from-decoration {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #8B1A1D, #D4AF37);
+    margin: 0 auto;
+}
+
+.regards-divider {
+    display: flex;
+    align-items: center;
+}
+
+.divider-symbol {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.all-relatives {
+    margin: 20px 0;
+}
+
+.relatives-box {
+    background: linear-gradient(135deg, rgba(248, 131, 121, 0.1), rgba(123, 165, 158, 0.1));
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    border: 2px solid rgba(248, 131, 121, 0.2);
+}
+
+.relatives-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #2C2C2C;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.gratitude-hearts {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.heart-emoji {
+    font-size: 1.8rem;
+    animation: heartFloat 2s ease-in-out infinite;
+}
+
+.heart-emoji:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.heart-emoji:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.regards-footer {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.final-message {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #999;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+/* ========== SAVE THE DATE PAGE ========== */
+.save-date-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px 0;
+}
+
+.save-date-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.date-decoration {
+    margin: 15px 0;
+}
+
+.decorative-hearts {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.dec-heart {
+    font-size: 2rem;
+    animation: floatHeart 3s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.dec-heart:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dec-heart:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.dec-heart:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes floatHeart {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(-15px); opacity: 1; }
+}
+
+.save-date-main {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
+
+.save-date-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    background: linear-gradient(135deg, #8B1A1D, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.date-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.date-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 7rem;
+    color: #2C2C2C;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+}
+
+.date-number::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #8B1A1D, #D4AF37);
+}
+
+.date-month-year {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.month {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #8B1A1D;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.year {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: #D4AF37;
+    font-weight: 600;
+}
+
+.couple-names-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bride-name-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #8B1A1D;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.groom-name-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #D4AF37;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.ampersand-large {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #999;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Corner Decorations */
+.corner-decor {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.corner-decor::before,
+.corner-decor::after {
+    content: '';
+    position: absolute;
+    background: #FFA69E;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-left::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+}
+
+.top-left::after {
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.top-right::before {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+}
+
+.top-right::after {
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-left::before {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+}
+
+.bottom-left::after {
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.bottom-right::before {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+}
+
+.bottom-right::after {
+    bottom: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+}
+
+/* Floating Petals */
+.floating-petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(ellipse at center, #ffc0cb 0%, #ffb6c1 50%, #ffc0cb 100%);
+    border-radius: 50% 0 50% 0;
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+.petal1 { left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.petal2 { left: 20%; animation-duration: 15s; animation-delay: 2s; }
+.petal3 { left: 30%; animation-duration: 13s; animation-delay: 4s; }
+.petal4 { left: 40%; animation-duration: 14s; animation-delay: 1s; }
+.petal5 { left: 60%; animation-duration: 16s; animation-delay: 3s; }
+.petal6 { left: 70%; animation-duration: 12s; animation-delay: 5s; }
+.petal7 { left: 80%; animation-duration: 15s; animation-delay: 2s; }
+.petal8 { left: 90%; animation-duration: 13s; animation-delay: 4s; }
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+    }
+    100% {
+        top: 110%;
+        transform: translateX(100px) rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Folk Dancers - Smaller on tablet */
+    .dancer-svg {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .dancer-left, .dancer-right {
+        gap: 60px;
+    }
+    
+    /* SVG Icon Responsive */
+    .icon-xlarge {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .icon-large {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .icon-medium {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .icon-small {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .form-container {
+        padding: 40px 30px;
+    }
+    
+    .side-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .side-option {
+        max-width: 100%;
+    }
+    
+    .elegant-title {
+        font-size: 3rem;
+    }
+    
+    .couple-names {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .bride-name, .groom-name {
+        font-size: 2rem;
+    }
+    
+    .invitation-page {
+        padding: 10px;
+    }
+    
+    .invitation-container {
+        height: 98vh;
+    }
+    
+    .invitation-card {
+        padding: 20px 20px;
+        border-radius: 22px;
+    }
+    
+    .couple-name {
+        font-size: 1.8rem;
+    }
+    
+    .main-couple-section {
+        gap: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .countdown-section {
+        padding: 10px 0;
+        margin: 10px 0;
+    }
+    
+    .slide-elegant-title {
+        font-size: 2.8rem;
+    }
+    
+    .slide-guest-name {
+        font-size: 1.8rem;
+    }
+    
+    .slide-name {
+        font-size: 2.3rem;
+    }
+    
+    .slide-ampersand {
+        font-size: 2.3rem;
+    }
+    
+    .save-date-heading {
+        font-size: 3.5rem;
+    }
+    
+    .count-num {
+        font-size: 1.6rem;
+    }
+    
+    .info-value {
+        font-size: 0.9rem;
+    }
+    
+    .rings-animation {
+        margin-bottom: 12px;
+    }
+    
+    .ring {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .ring2 {
+        margin-left: -18px;
+    }
+    
+    .calendar-day-huge {
+        font-size: 2.2rem;
+    }
+    
+    .calendar-page {
+        padding: 8px 16px;
+    }
+    
+    .calendar-time {
+        font-size: 0.85rem;
+    }
+    
+    .flip-number {
+        font-size: 1.6rem;
+    }
+    
+    .flip-separator {
+        font-size: 1.1rem;
+    }
+    
+    .info-text {
+        font-size: 0.85rem;
+    }
+    
+    .rsvp-text {
+        font-size: 0.9rem;
+    }
+    
+    .family-unity-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .unity-center {
+        order: 2;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding: 15px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .unity-center .infinity-symbol {
+        font-size: 2rem;
+    }
+    
+    .family-main-title {
+        font-size: 1.6rem;
+    }
+    
+    .emblem-circle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .emblem-initial {
+        font-size: 1.5rem;
+    }
+    
+    .save-date-heading {
+        font-size: 2.8rem;
+    }
+    
+    .date-number {
+        font-size: 5.5rem;
+    }
+    
+    .month {
+        font-size: 1.7rem;
+    }
+    
+    .year {
+        font-size: 1.3rem;
+    }
+    
+    .family-main-title {
+        font-size: 1.4rem;
+    }
+    
+    .emblem-circle-large {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .emblem-initial-large {
+        font-size: 1.7rem;
+    }
+    
+    .generation-box {
+        padding: 8px 12px;
+    }
+    
+    .generation-title {
+        font-size: 0.55rem;
+    }
+    
+    .member-name-large {
+        font-size: 0.85rem;
+    }
+    
+    .generation-connector {
+        height: 12px;
+    }
+    
+    .special-badge {
+        font-size: 1.8rem;
+        margin-bottom: 4px;
+    }
+    
+    .bride-name-display, .groom-name-display {
+        font-size: 1.7rem;
+    }
+    
+    .special-subtitle {
+        font-size: 0.65rem;
+    }
+    
+    .blessing-quote {
+        font-size: 0.78rem;
+    }
+    
+    .mehandi-main-title {
+        font-size: 1.7rem;
+    }
+    
+    .mehandi-subtitle {
+        font-size: 0.6rem;
+    }
+    
+    .mehandi-couple-name {
+        font-size: 1.7rem;
+    }
+    
+    .ceremony-card {
+        max-width: 120px;
+        padding: 12px 15px;
+    }
+    
+    .ceremony-name {
+        font-size: 1.15rem;
+    }
+    
+    .ceremony-tagline {
+        font-size: 0.65rem;
+    }
+    
+    .info-value {
+        font-size: 0.95rem;
+    }
+    
+    .info-address {
+        font-size: 0.72rem;
+    }
+    
+    .note-text {
+        font-size: 0.88rem;
+    }
+    
+    .haldi-ceremony-title {
+        font-size: 1.7rem;
+    }
+    
+    .haldi-ceremony-subtitle {
+        font-size: 0.6rem;
+    }
+    
+    .haldi-name {
+        font-size: 1.8rem;
+    }
+    
+    .haldi-invite-line {
+        font-size: 0.78rem;
+    }
+    
+    .venue-name-haldi {
+        font-size: 1.4rem;
+    }
+    
+    .venue-address-haldi p {
+        font-size: 0.75rem;
+    }
+    
+    .blessing-line {
+        font-size: 0.9rem;
+    }
+    
+    .badge-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Folk Dancers - Hide on mobile */
+    .folk-dancers-bg {
+        opacity: 0.08;
+    }
+    
+    .dancer-svg {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .dancer-left, .dancer-right {
+        gap: 40px;
+    }
+    
+    /* SVG Icon Responsive */
+    .icon-xlarge {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .icon-large {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .icon-medium {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .icon-small {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .elegant-title {
+        font-size: 2.5rem;
+    }
+    
+    .couple-name {
+        font-size: 1.8rem;
+    }
+    
+    .guest-name-highlight {
+        font-size: 1.3rem;
+    }
+    
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .option-card {
+        padding: 12px 15px;
+    }
+    
+    .option-icon {
+        font-size: 1.5rem;
+    }
+    
+    .option-text {
+        font-size: 0.75rem;
+    }
+    
+    .invitation-card {
+        padding: 15px;
+        border-radius: 18px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 
+                    0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+    
+    .countdown-section {
+        padding: 8px 0;
+        margin: 8px 0;
+    }
+    
+    .slide-elegant-title {
+        font-size: 2.5rem;
+    }
+    
+    .slide-guest-name {
+        font-size: 1.6rem;
+    }
+    
+    .slide-name {
+        font-size: 2rem;
+    }
+    
+    .slide-ampersand {
+        font-size: 2rem;
+    }
+    
+    .save-date-heading {
+        font-size: 3rem;
+    }
+    
+    .count-num {
+        font-size: 1.4rem;
+    }
+    
+    .count-sep {
+        font-size: 1rem;
+    }
+    
+    .info-value {
+        font-size: 0.85rem;
+    }
+    
+    .info-icon-text {
+        font-size: 1rem;
+    }
+    
+    .slide-couple-names {
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .rings-animation {
+        margin-bottom: 10px;
+    }
+    
+    .ring {
+        width: 45px;
+        height: 45px;
+        border-width: 3px;
+    }
+    
+    .ring2 {
+        margin-left: -16px;
+    }
+    
+    .ring::before {
+        width: 16px;
+        height: 6px;
+    }
+    
+    .calendar-day-huge {
+        font-size: 2rem;
+    }
+    
+    .calendar-page {
+        padding: 7px 14px;
+    }
+    
+    .calendar-month {
+        font-size: 0.6rem;
+    }
+    
+    .calendar-year {
+        font-size: 0.55rem;
+    }
+    
+    .calendar-time {
+        font-size: 0.8rem;
+    }
+    
+    .flip-number {
+        font-size: 1.5rem;
+    }
+    
+    .flip-label {
+        font-size: 0.48rem;
+    }
+    
+    .flip-separator {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .countdown-creative {
+        gap: 4px;
+    }
+    
+    .header-ornament svg {
+        height: 35px;
+    }
+    
+    .footer-ornament svg {
+        height: 30px;
+    }
+    
+    .info-text {
+        font-size: 0.8rem;
+    }
+    
+    .info-icon {
+        font-size: 1.1rem;
+    }
+    
+    .rsvp-text {
+        font-size: 0.85rem;
+    }
+    
+    .heart-container {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .heart {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .heart::before,
+    .heart::after {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .heart::before {
+        top: -12.5px;
+    }
+    
+    .heart::after {
+        left: 12.5px;
+    }
+    
+    .heart-pulse {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .families-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .family-divider {
+        width: 100%;
+        height: 30px;
+    }
+    
+    .family-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .family-name {
+        font-size: 1rem;
+    }
+    
+    .couple-name-small {
+        font-size: 1.1rem;
+    }
+    
+    .generation {
+        padding: 10px 12px;
+    }
+    
+    .family-member {
+        font-size: 0.8rem;
+    }
+    
+    .nav-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .blessing-text p {
+        font-size: 0.65rem;
+    }
+    
+    .family-unity-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .unity-center {
+        order: 2;
+        width: 100%;
+        flex-direction: row;
+        gap: 15px;
+        padding: 12px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    .unity-center .infinity-symbol {
+        font-size: 1.8rem;
+    }
+    
+    .unity-text {
+        font-size: 0.75rem;
+    }
+    
+    .family-main-title {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+    }
+    
+    .family-subtitle {
+        font-size: 0.55rem;
+    }
+    
+    .emblem-circle {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .emblem-initial {
+        font-size: 1.3rem;
+    }
+    
+    .side-family-name {
+        font-size: 1rem;
+    }
+    
+    .member-name {
+        font-size: 0.75rem;
+    }
+    
+    .highlight-name {
+        font-size: 1.2rem;
+    }
+    
+    .blessing-quote {
+        font-size: 0.8rem;
+    }
+    
+    .venue-name {
+        font-size: 2rem;
+    }
+    
+    .venue-details-grid {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .venue-info-card {
+        min-width: 100px;
+        padding: 12px 15px;
+    }
+    
+    .info-card-value {
+        font-size: 1.2rem;
+    }
+    
+    .address-line {
+        font-size: 0.85rem;
+    }
+    
+    .rsvp-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .rsvp-intro {
+        font-size: 1.1rem;
+    }
+    
+    .contact-name {
+        font-size: 1.4rem;
+    }
+    
+    .contact-card {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-details {
+        text-align: center;
+    }
+    
+    .regards-title {
+        font-size: 2rem;
+    }
+    
+    .regards-intro {
+        font-size: 1.2rem;
+    }
+    
+    .from-label {
+        font-size: 1.2rem;
+    }
+    
+    .relatives-text {
+        font-size: 1.3rem;
+    }
+    
+    .regards-from-section {
+        gap: 25px;
+    }
+    
+    .rsvp-main-title {
+        font-size: 1.5rem;
+    }
+    
+    .rsvp-intro {
+        font-size: 1rem;
+    }
+    
+    .contact-name {
+        font-size: 1.2rem;
+    }
+    
+    .contact-card {
+        padding: 18px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .contact-icon {
+        font-size: 2.5rem;
+    }
+    
+    .rsvp-note-box {
+        padding: 15px;
+    }
+    
+    .note-text {
+        font-size: 0.95rem;
+    }
+    
+    .couple-initials {
+        font-size: 1.5rem;
+    }
+    
+    .rsvp-main-title {
+        font-size: 1.5rem;
+    }
+    
+    .rsvp-intro {
+        font-size: 0.95rem;
+    }
+    
+    .contact-name {
+        font-size: 1.1rem;
+    }
+    
+    .contact-card {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .contact-icon {
+        font-size: 2.2rem;
+    }
+    
+    .rsvp-note-box {
+        padding: 12px;
+    }
+    
+    .note-text {
+        font-size: 0.9rem;
+    }
+    
+    .regards-title {
+        font-size: 1.8rem;
+    }
+    
+    .regards-intro {
+        font-size: 1.1rem;
+    }
+    
+    .from-label {
+        font-size: 1.1rem;
+    }
+    
+    .from-group {
+        padding: 15px;
+        min-width: 120px;
+    }
+    
+    .from-icon {
+        font-size: 2rem;
+    }
+    
+    .regards-from-section {
+        gap: 20px;
+    }
+    
+    .relatives-text {
+        font-size: 1.2rem;
+    }
+    
+    .relatives-box {
+        padding: 20px;
+    }
+    
+    .heart-emoji {
+        font-size: 1.5rem;
+    }
+    
+    .save-date-heading {
+        font-size: 2.2rem;
+    }
+    
+    .date-number {
+        font-size: 4.5rem;
+    }
+    
+    .month {
+        font-size: 1.4rem;
+    }
+    
+    .year {
+        font-size: 1.1rem;
+    }
+    
+    .family-main-title {
+        font-size: 1.3rem;
+    }
+    
+    .emblem-circle-large {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .emblem-initial-large {
+        font-size: 1.5rem;
+    }
+    
+    .generation-box {
+        padding: 7px 10px;
+    }
+    
+    .generation-title {
+        font-size: 0.5rem;
+        margin-bottom: 4px;
+    }
+    
+    .member-name-large {
+        font-size: 0.78rem;
+    }
+    
+    .generation-connector {
+        height: 10px;
+    }
+    
+    .special-badge {
+        font-size: 1.6rem;
+        margin-bottom: 3px;
+    }
+    
+    .bride-name-display, .groom-name-display {
+        font-size: 1.5rem;
+    }
+    
+    .special-subtitle {
+        font-size: 0.6rem;
+    }
+    
+    .blessing-quote {
+        font-size: 0.72rem;
+    }
+    
+    .ampersand-large {
+        font-size: 1.5rem;
+    }
+    
+    .dec-heart {
+        font-size: 1.5rem;
+    }
+    
+    .decorative-hearts {
+        gap: 15px;
+    }
+    
+    .haldi-title {
+        font-size: 1.7rem;
+    }
+    
+    .haldi-venue-name {
+        font-size: 1.3rem;
+    }
+    
+    .haldi-address-line {
+        font-size: 0.7rem;
+    }
+    
+    .haldi-venue-box {
+        padding: 15px;
+    }
+    
+    .haldi-tagline {
+        font-size: 0.95rem;
+    }
+    
+    .haldi-value {
+        font-size: 1rem;
+    }
+    
+    .haldi-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .haldi-quote {
+        font-size: 1.2rem;
+    }
+    
+    .haldi-card {
+        padding: 15px;
+    }
+    
+    .haldi-card-main {
+        font-size: 1.1rem;
+    }
+    
+    .badge-text {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+    
+    .haldi-flowers-decor {
+        gap: 20px;
+    }
+    
+    .haldi-flower {
+        font-size: 1.5rem;
+    }
+    
+    .address-badge {
+        padding: 12px 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .address-compact {
+        font-size: 0.7rem;
+    }
+    
+    .vibe-message {
+        font-size: 0.65rem;
+    }
+    
+    .mehandi-main-title {
+        font-size: 1.5rem;
+    }
+    
+    .ceremony-card {
+        max-width: 110px;
+        padding: 10px 12px;
+    }
+    
+    .ceremony-icon {
+        font-size: 2rem;
+    }
+    
+    .ceremony-name {
+        font-size: 1rem;
+    }
+    
+    .ceremony-divider {
+        font-size: 1.5rem;
+    }
+    
+    .mehandi-couple-name {
+        font-size: 1.6rem;
+    }
+    
+    .info-icon {
+        font-size: 1.5rem;
+    }
+    
+    .info-value {
+        font-size: 0.9rem;
+    }
+    
+    .info-address {
+        font-size: 0.7rem;
+    }
+    
+    .note-text {
+        font-size: 0.85rem;
+    }
+}
+

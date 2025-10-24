@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation - Enter Your Name</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="form-page">
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="form-container">
+        <div class="ornament-top">
+            <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 10 25 Q 30 10, 50 25 T 90 25 T 130 25 T 170 25 T 190 25" 
+                      stroke="#FFA69E" fill="none" stroke-width="2"/>
+                <circle cx="100" cy="25" r="8" fill="#F88379"/>
+                <circle cx="50" cy="25" r="5" fill="#FFA69E"/>
+                <circle cx="150" cy="25" r="5" fill="#FFA69E"/>
+            </svg>
+        </div>
+        
+        <div class="form-content">
+            <div class="rings-animation">
+                <div class="ring ring1"></div>
+                <div class="ring ring2"></div>
+            </div>
+            
+            <h1 class="elegant-title">You're Invited!</h1>
+            <p class="subtitle">To the Wedding Celebration of</p>
+            
+            <div class="couple-names">
+                <span class="groom-name">Deep</span>
+                <span class="ampersand">&</span>
+                <span class="bride-name">Kanica</span>
+            </div>
+            
+            <p class="invitation-text">
+                Please enter your name to receive your<br>
+                personalized wedding invitation
+            </p>
+            
+            <form id="nameForm" class="name-form">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="guestName" 
+                        placeholder="Enter your name" 
+                        required
+                        autocomplete="off"
+                    >
+                    <div class="input-underline"></div>
+                </div>
+                
+                <div class="side-selection">
+                    <p class="selection-label">You are invited from</p>
+                    <div class="side-buttons">
+                        <label class="side-option bride-option">
+                            <input type="radio" name="side" value="bride" required>
+                            <span class="option-card">
+                                <span class="option-icon">💐</span>
+                                <span class="option-text">Bride's Side</span>
+                            </span>
+                        </label>
+                        <label class="side-option groom-option">
+                            <input type="radio" name="side" value="groom" required>
+                            <span class="option-card">
+                                <span class="option-icon">🎩</span>
+                                <span class="option-text">Groom's Side</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">View Invitation</span>
+                    <span class="btn-icon">→</span>
+                </button>
+            </form>
+        </div>
+        
+        <div class="ornament-bottom">
+            <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 10 25 Q 30 40, 50 25 T 90 25 T 130 25 T 170 25 T 190 25" 
+                      stroke="#FFA69E" fill="none" stroke-width="2"/>
+                <circle cx="100" cy="25" r="8" fill="#F88379"/>
+                <circle cx="50" cy="25" r="5" fill="#FFA69E"/>
+                <circle cx="150" cy="25" r="5" fill="#FFA69E"/>
+            </svg>
+        </div>
+    </div>
+    
+    <div class="floating-flowers">
+        <div class="flower flower1">🌸</div>
+        <div class="flower flower2">🌺</div>
+        <div class="flower flower3">🌸</div>
+        <div class="flower flower4">🌺</div>
+        <div class="flower flower5">🌸</div>
+        <div class="flower flower6">🌺</div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+

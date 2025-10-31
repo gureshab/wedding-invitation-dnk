@@ -46,7 +46,27 @@ let visibleSlides = [];
 // Get visible slides based on side
 function getVisibleSlides() {
     const guestSide = getQueryParameter('side') || 'bride';
+    const onlyWedding = getQueryParameter('onlyWedding') === 'true';
     const allSlides = document.querySelectorAll('.slide');
+
+    if (onlyWedding) {
+        // When onlyWedding is requested: show regular slides (respecting data-show-for)
+        // but exclude slides explicitly marked to be excluded (data-exclude-on-only-wedding="true").
+        visibleSlides = Array.from(allSlides).filter(slide => {
+            const showFor = slide.getAttribute('data-show-for');
+            const excluded = slide.getAttribute('data-exclude-on-only-wedding') === 'true';
+            const matchesSide = !showFor || showFor === guestSide;
+            return matchesSide && !excluded;
+        });
+
+        // Fallback: if nothing left (unlikely), show at least the announcement/main slide(s)
+        if (visibleSlides.length === 0) {
+            visibleSlides = Array.from(allSlides).filter(slide => slide.getAttribute('data-wedding') === 'true');
+        }
+
+        return visibleSlides;
+    }
+
     visibleSlides = Array.from(allSlides).filter(slide => {
         const showFor = slide.getAttribute('data-show-for');
         return !showFor || showFor === guestSide;
@@ -164,6 +184,7 @@ document.addEventListener('keydown', function(e) {
 window.addEventListener('DOMContentLoaded', function() {
     const guestName = getQueryParameter('name');
     const guestSide = getQueryParameter('side') || 'bride';
+    const onlyWedding = getQueryParameter('onlyWedding') === 'true';
     const guestNameElement = document.getElementById('guestName');
     
     if (guestName) {
@@ -191,6 +212,15 @@ window.addEventListener('DOMContentLoaded', function() {
     let visibleSlideCount = 0;
     allSlides.forEach((slide, index) => {
         const showFor = slide.getAttribute('data-show-for');
+        // If onlyWedding flag is set, hide slides explicitly excluded for only-wedding (e.g., Mehandi/Haldi)
+        if (onlyWedding) {
+            const excluded = slide.getAttribute('data-exclude-on-only-wedding') === 'true';
+            if (excluded) {
+                if (dots[index]) dots[index].style.display = 'none';
+                return; // skip counting this slide
+            }
+        }
+
         if (showFor && showFor !== guestSide) {
             // Hide this slide's dot
             if (dots[index]) {
@@ -207,8 +237,17 @@ window.addEventListener('DOMContentLoaded', function() {
     // Initialize first slide
     showSlide(1);
     
-    // Start auto-slide
-    startAutoSlide();
+    // Start auto-slide only if there is more than one visible slide
+    if (visibleSlides.length > 1) startAutoSlide();
+
+    // If onlyWedding is true, disable some non-essential functions/animations
+    if (onlyWedding) {
+        // stop sparkles/confetti/music by not starting them (they are started below)
+        // hide navigation dots if only one visible
+        if (dots.length <= 1) {
+            document.querySelectorAll('.slide-dots, .slide-navigation').forEach(el => el && (el.style.display = 'none'));
+        }
+    }
 });
 
 // Add entrance animation
@@ -255,7 +294,10 @@ function createSparkle() {
 }
 
 // Create sparkles periodically
-setInterval(createSparkle, 500);
+// Only start sparkles when not in 'onlyWedding' mode. We'll read the flag from URL.
+if (getQueryParameter('onlyWedding') !== 'true') {
+    setInterval(createSparkle, 500);
+}
 
 // Sparkle animation
 const sparkleStyle = document.createElement('style');
@@ -328,6 +370,36 @@ confettiStyle.textContent = `
 `;
 document.head.appendChild(confettiStyle);
 
-// Trigger confetti on page load
-setTimeout(createConfetti, 500);
+// Trigger confetti on page load only when not in only-wedding mode
+if (getQueryParameter('onlyWedding') !== 'true') {
+    setTimeout(createConfetti, 500);
+}
+
+// ------------------ Background music control ------------------
+// Note: Place your MP3 at ./audio/aaj-sajeya.mp3. I cannot provide copyrighted audio.
+document.addEventListener('DOMContentLoaded', function() {
+    // Do not auto-play background music when onlyWedding mode is active
+    if (getQueryParameter('onlyWedding') === 'true') return;
+
+    const music = document.getElementById('bgMusic');
+    if (!music) return;
+
+    // Function to try playing audio
+    function tryPlay() {
+        music.play().catch(() => {
+            // If autoplay fails, try on first click
+            document.body.addEventListener('click', function playOnClick() {
+                music.play();
+                document.body.removeEventListener('click', playOnClick);
+            }, { once: true });
+        });
+    }
+
+    // Try to play as soon as metadata is loaded
+    if (music.readyState >= 2) { // HAVE_CURRENT_DATA
+        tryPlay();
+    } else {
+        music.addEventListener('loadeddata', tryPlay);
+    }
+});
 

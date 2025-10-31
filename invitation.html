@@ -4,12 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Invitation - Deep & Kanica</title>
-    <link rel="stylesheet" href="style.css" />
+  <!-- Preconnect and font imports (match index.html fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body class="invitation-page">
     <div class="stars"></div>
     <div class="stars2"></div>
     <div class="stars3"></div>
+
+    <!-- Background music -->
+    <audio id="bgMusic" src="assets/music/Aaj Sajeya-(SambalpuriStar.In).mp3" preload="auto" loop autoplay style="display:none"></audio>
 
     <!-- SVG Icon Library -->
     <svg style="display: none">
@@ -118,14 +126,15 @@
           <span class="dot" onclick="currentSlide(6)"></span>
           <span class="dot" onclick="currentSlide(7)"></span>
           <span class="dot" onclick="currentSlide(8)"></span>
+          <span class="dot" onclick="currentSlide(9)"></span>
+          <span class="dot" onclick="currentSlide(10)"></span>
+          <span class="dot" onclick="currentSlide(11)"></span>
         </div>
         <button class="nav-arrow next-slide" onclick="changeSlide(1)">›</button>
       </div>
 
       <div class="slides-wrapper">
-        <!-- SLIDE 1: Main Invitation -->
-        <div class="invitation-card slide active">
-          <!-- Top Ornament SVG -->
+  <div class="invitation-card slide active" data-wedding="true">
           <div class="slide-ornament-top">
             <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
               <path d="M 10 20 Q 30 8, 50 20 T 90 20 T 130 20 T 170 20 T 190 20" 
@@ -136,16 +145,13 @@
             </svg>
           </div>
 
-          <!-- Main Content -->
           <div class="slide-main-content">
-            <!-- Rings Animation -->
             <div class="rings-animation">
               <div class="ring ring1"></div>
               <div class="ring ring2"></div>
             </div>
             
             <h1 class="slide-elegant-title">You're Invited!</h1>
-            
             <h2 class="slide-dear-guest">
               Dear <span id="guestName" class="slide-guest-name">Guest</span>
             </h2>
@@ -158,7 +164,6 @@
               <span class="slide-name groom-name">Deep</span>
             </div>
             
-            <!-- Date & Time Info -->
             <div class="slide-event-info">
               <div class="info-row">
                 <span class="info-icon-text">📅</span>
@@ -209,117 +214,87 @@
           </div>
         </div>
 
-        <!-- SLIDE 2: Family Details - Bride's Side -->
-        <div class="invitation-card slide" data-show-for="bride">
-          <div class="family-page">
-            <div class="family-intro">
-              <h2 class="family-main-title">The Gupta Family</h2>
-              <p class="family-subtitle">Blessed by generations of love</p>
-            </div>
-
-            <div class="family-single-side">
-              <div class="family-emblem-large">
-                <div class="emblem-circle-large">
-                  <span class="emblem-initial-large">G</span>
-                </div>
-              </div>
-
-              <div class="family-tree-vertical">
-                <div class="generation-box">
-                  <p class="generation-title">Grandparents</p>
-                  <div class="member-names">
-                    <p class="member-name-large">Parshotam Das Gupta</p>
-                    <p class="member-name-large">Saroj Rani</p>
-                  </div>
-                </div>
-
-                <div class="generation-connector">
-                  <div class="connector-line"></div>
-                  <div class="connector-dot"></div>
-                </div>
-
-                <div class="generation-box">
-                  <p class="generation-title">Parents</p>
-                  <div class="member-names">
-                    <p class="member-name-large">Avinash Gupta</p>
-                    <p class="member-name-large">Geeta Gupta</p>
-                  </div>
-                </div>
-
-                <div class="generation-connector">
-                  <div class="connector-line"></div>
-                  <div class="connector-dot"></div>
-                </div>
-
-                <div class="generation-box bride-special">
-                  <div class="special-badge">
-                    <svg class="svg-icon icon-large">
-                      <use href="#icon-bride"></use>
-                    </svg>
-                  </div>
-                  <p class="bride-name-display">Kanica</p>
-                  <p class="special-subtitle">The Bride</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="family-blessing">
-              <div class="blessing-ornament">❖</div>
-              <p class="blessing-quote">"A beautiful soul, raised with love"</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- SLIDE 2: Family Details - Groom's Side -->
+        <!-- SLIDE 2: Grandparents - Groom's Side -->
         <div class="invitation-card slide" data-show-for="groom">
-          <div class="family-page">
-            <div class="family-intro">
-              <h2 class="family-main-title">The Sudhera Family</h2>
-              <p class="family-subtitle">Blessed by love and legacy</p>
-            </div>
-
-            <div class="family-single-side">
-              <div class="family-emblem-large">
-                <div class="emblem-circle-large">
-                  <span class="emblem-initial-large">S</span>
-                </div>
+          <div class="grandparents-page">
+            <div class="grandparents-content">
+              <div class="grandparents-names">
+                <h2 class="grandparent-name">Late Mr. Baldev Raj</h2>
+                <span class="grandparents-ampersand">&</span>
+                <h2 class="grandparent-name">Late Mrs. Savitri Devi</h2>
               </div>
-
-              <div class="family-tree-vertical">
-                <div class="generation-box">
-                  <p class="generation-title">Parents</p>
-                  <div class="member-names">
-                    <p class="member-name-large">Late Raj Kumar Sudhera</p>
-                    <p class="member-name-large">Sapna Sudhera</p>
-                  </div>
-                </div>
-
-                <div class="generation-connector">
-                  <div class="connector-line"></div>
-                  <div class="connector-dot"></div>
-                </div>
-
-                <div class="generation-box groom-special">
-                  <div class="special-badge">
-                    <svg class="svg-icon icon-large">
-                      <use href="#icon-groom"></use>
-                    </svg>
-                  </div>
-                  <p class="groom-name-display">Deep</p>
-                  <p class="special-subtitle">The Groom</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="family-blessing">
-              <div class="blessing-ornament">❖</div>
-              <p class="blessing-quote">"A gentleman, raised with strength"</p>
+              <p class="grandparents-blessing">Your blessings will forever be our guiding light</p>
             </div>
           </div>
         </div>
 
-        <!-- SLIDE 3: Mehandi & Sangeet (Bride's Side Only) -->
-        <div class="invitation-card slide mehandi-slide" data-show-for="bride">
+        <!-- SLIDE 3: Grandparents - Bride's Side -->
+        <div class="invitation-card slide" data-show-for="bride">
+          <div class="grandparents-page">
+            <div class="grandparents-content">
+              <div class="grandparents-names">
+                <h2 class="grandparent-name">Parshotam das Gupta</h2>
+                <span class="grandparents-ampersand">&</span>
+                <h2 class="grandparent-name">Saroj Rani</h2>
+              </div>
+              <p class="grandparents-blessing">REQUESTS YOUR GRACIOUS PRESENCE WITH FAMILY ON THE AUSPICIOUS OCCASION OF THE WEDDING OF THEIR BELOVED GRANDDAUGHTER</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4: Wedding Announcement -->
+  <div class="invitation-card slide wedding-announcement-slide" data-wedding="true">
+          <div class="wedding-announcement-page">
+            <div class="announcement-content">
+              <div class="announcement-main">
+                <div class="couple-names-announcement">
+                  <h1 class="groom-name-announcement">Deep</h1>
+                  <div class="wedding-symbol">
+                    <div class="wedding-text">weds</div>
+                  </div>
+                  <h1 class="bride-name-announcement">Kanica</h1>
+                </div>
+
+                <div class="announcement-date">
+                  <div class="date-icon">📅</div>
+                  <div class="date-text">
+                    <span class="date-day">7th November</span>
+                    <span class="date-year">2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  <!-- SLIDE 5: Family Details - Groom's Side -->
+  <div class="invitation-card slide">
+          <div class="family-page">
+            <div class="family-slide-name">Deep</div>
+            <div class="family-slide-title">Son of</div>
+            <div class="family-slide-parents">
+              Late Mr. Raj Kumar Sudhera
+              <br>&<br>
+              Mrs. Sapna Sudhera
+            </div>
+          </div>
+        </div>
+
+  <!-- SLIDE 6: Family Details - Bride's Side -->
+  <div class="invitation-card slide">
+          <div class="family-page">
+            <div class="family-slide-name">Kanica</div>
+            <div class="family-slide-title">Daughter of</div>
+            <div class="family-slide-parents">
+              Mr. Avinash Gupta
+              <br>&<br>
+              Mrs. Geeta Gupta
+            </div>
+          </div>
+        </div>
+
+  <!-- SLIDE 7: Mehandi & Sangeet (Bride's Side Only) -->
+  <div class="invitation-card slide mehandi-slide" data-show-for="bride" data-wedding="true" data-exclude-on-only-wedding="true">
           <!-- Folk Dancers Background -->
           <div class="folk-dancers-bg">
             <div class="dancer-left">
@@ -347,9 +322,7 @@
               <div class="mehandi-dual-ceremony">
                 <div class="ceremony-card mehandi-card">
                   <div class="ceremony-icon">
-                    <svg class="svg-icon icon-xlarge">
-                      <use href="#icon-palette"></use>
-                    </svg>
+                    <i class="fas fa-palette theme-icon-large"></i>
                   </div>
                   <h3 class="ceremony-name">Mehandi</h3>
                   <p class="ceremony-tagline">Colors of love</p>
@@ -359,9 +332,7 @@
 
                 <div class="ceremony-card sangeet-card">
                   <div class="ceremony-icon">
-                    <svg class="svg-icon icon-xlarge">
-                      <use href="#icon-music"></use>
-                    </svg>
+                    <i class="fas fa-music theme-icon-large"></i>
                   </div>
                   <h3 class="ceremony-name">Sangeet</h3>
                   <p class="ceremony-tagline">Songs of joy</p>
@@ -394,9 +365,9 @@
                   </div>
                   <div class="info-content">
                     <p class="info-label">Venue</p>
-                    <p class="info-value">Janki Niwas</p>
+                    <p class="info-value">Janki Niwas (Our Home)</p>
                     <p class="info-address">
-                      264, Modern Valley, Sirhind, Punjab 140406
+                      SST Nagar, Patiala, Punjab, 147004
                     </p>
                   </div>
                 </div>
@@ -417,8 +388,8 @@
           </div>
         </div>
 
-        <!-- SLIDE 4: Haldi Ceremony -->
-        <div class="invitation-card slide haldi-slide">
+  <!-- SLIDE 8: Haldi Ceremony -->
+  <div class="invitation-card slide haldi-slide" data-wedding="true" data-exclude-on-only-wedding="true">
           <div class="haldi-page">
             <div class="haldi-header">
               <div class="ornamental-flourish">
@@ -441,11 +412,16 @@
               <div class="haldi-event-details">
                 <div class="haldi-info-row">
                   <span class="info-emoji">
-                    <svg class="svg-icon icon-medium">
-                      <use href="#icon-calendar"></use>
-                    </svg>
+                    <i class="fas fa-calendar-alt theme-icon-medium"></i>
                   </span>
                   <span class="info-text">6th November, 2025</span>
+                </div>
+
+                <div class="haldi-info-row">
+                  <span class="info-emoji">
+                    <i class="fas fa-clock theme-icon-medium"></i>
+                  </span>
+                  <span class="info-text">11:00 AM</span>
                 </div>
 
                 <div class="haldi-divider-line"></div>
@@ -477,14 +453,12 @@
           </div>
         </div>
 
-        <!-- SLIDE 5: Venue Details -->
+        <!-- SLIDE 9: Venue Details -->
         <div class="invitation-card slide">
           <div class="venue-page">
             <div class="venue-header">
               <div class="venue-icon">
-                <svg class="svg-icon icon-xlarge">
-                  <use href="#icon-location"></use>
-                </svg>
+                <i class="fas fa-map-marker-alt theme-icon-xlarge"></i>
               </div>
               <h2 class="venue-title">Join Us At</h2>
             </div>
@@ -496,7 +470,7 @@
 
               <div class="address-section">
                 <p class="address-line">
-                  SH8, Hassanpur, Patiala, Punjab, 147004
+                  Sirhind Road, Patiala, Punjab, 147004
                 </p>
               </div>
             </div>
@@ -504,9 +478,7 @@
             <div class="venue-details-grid">
               <div class="venue-info-card">
                 <div class="info-icon-circle">
-                  <svg class="svg-icon icon-medium">
-                    <use href="#icon-calendar"></use>
-                  </svg>
+                  <i class="fas fa-calendar-alt theme-icon-medium"></i>
                 </div>
                 <p class="info-card-label">Date</p>
                 <p class="info-card-value">7th November</p>
@@ -515,9 +487,7 @@
 
               <div class="venue-info-card">
                 <div class="info-icon-circle">
-                  <svg class="svg-icon icon-medium">
-                    <use href="#icon-calendar"></use>
-                  </svg>
+                  <i class="fas fa-clock theme-icon-medium"></i>
                 </div>
                 <p class="info-card-label">Time</p>
                 <p class="info-card-value">6:00 PM</p>
@@ -543,67 +513,10 @@
           </div>
         </div>
 
-        <!-- SLIDE 6: RSVP -->
-        <div class="invitation-card slide">
-          <div class="rsvp-page">
-            <div class="rsvp-header">
-              <div class="ornamental-flourish">
-                <span class="flourish-symbol">✦</span>
-              </div>
-              <h2 class="rsvp-main-title">Please Respond</h2>
-              <p class="rsvp-subtitle">Kindly confirm your presence</p>
-            </div>
 
-            <div class="rsvp-content">
-              <div class="rsvp-message">
-                <p class="rsvp-intro">Your presence means the world to us</p>
-                <p class="rsvp-intro-sub">
-                  Please let us know if you'll be joining the celebration
-                </p>
-              </div>
-
-              <div class="rsvp-contact-section">
-                <div class="contact-label-wrapper">
-                  <p class="contact-label">RSVP Contact</p>
-                  <div class="contact-line"></div>
-                </div>
-
-                <div class="contact-card">
-                  <div class="contact-icon">
-                    <svg class="svg-icon icon-xlarge">
-                      <use href="#icon-phone"></use>
-                    </svg>
-                  </div>
-                  <div class="contact-details">
-                    <p class="contact-name">Aakash Sudhera</p>
-                    <p class="contact-instruction">
-                      Please call or message to confirm
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="rsvp-note-box">
-                <p class="note-icon">
-                  <svg class="svg-icon icon-medium">
-                    <use href="#icon-heart"></use>
-                  </svg>
-                </p>
-                <p class="note-text">We hope to see you there!</p>
-              </div>
-            </div>
-
-            <div class="rsvp-footer">
-              <div class="ornamental-flourish">
-                <span class="flourish-symbol">✦</span>
-              </div>
-              <p class="footer-tagline">With love & gratitude</p>
-              <p class="couple-initials">K & D</p>
-            </div>
-          </div>
         </div>
 
-        <!-- SLIDE 7: Warm Regards -->
+        <!-- SLIDE 11: Warm Regards -->
         <div class="invitation-card slide">
           <div class="regards-page">
             <div class="regards-header">
@@ -624,9 +537,7 @@
               <div class="regards-from-section">
                 <div class="from-group naanke">
                   <div class="from-icon">
-                    <svg class="svg-icon icon-large">
-                      <use href="#icon-home"></use>
-                    </svg>
+                    <i class="fas fa-home theme-icon-large"></i>
                   </div>
                   <p class="from-label">Naanke</p>
                   <div class="from-decoration"></div>
@@ -638,9 +549,7 @@
 
                 <div class="from-group daadke">
                   <div class="from-icon">
-                    <svg class="svg-icon icon-large">
-                      <use href="#icon-home"></use>
-                    </svg>
+                    <i class="fas fa-home theme-icon-large"></i>
                   </div>
                   <p class="from-label">Daadke</p>
                   <div class="from-decoration"></div>
@@ -652,19 +561,13 @@
                   <p class="relatives-text">All Relatives and Family</p>
                   <div class="gratitude-hearts">
                     <span class="heart-emoji">
-                      <svg class="svg-icon icon-small">
-                        <use href="#icon-heart"></use>
-                      </svg>
+                      <i class="fas fa-heart theme-icon-small"></i>
                     </span>
                     <span class="heart-emoji">
-                      <svg class="svg-icon icon-small">
-                        <use href="#icon-heart"></use>
-                      </svg>
+                      <i class="fas fa-heart theme-icon-small"></i>
                     </span>
                     <span class="heart-emoji">
-                      <svg class="svg-icon icon-small">
-                        <use href="#icon-heart"></use>
-                      </svg>
+                      <i class="fas fa-heart theme-icon-small"></i>
                     </span>
                   </div>
                 </div>
@@ -682,26 +585,20 @@
           </div>
         </div>
 
-        <!-- SLIDE 8: Save the Date -->
+        <!-- SLIDE 12: Save the Date -->
         <div class="invitation-card slide">
           <div class="save-date-page">
             <div class="save-date-content">
               <div class="date-decoration top">
                 <div class="decorative-hearts">
                   <span class="dec-heart">
-                    <svg class="svg-icon icon-small">
-                      <use href="#icon-heart"></use>
-                    </svg>
+                    <i class="fas fa-heart theme-icon-small"></i>
                   </span>
                   <span class="dec-heart">
-                    <svg class="svg-icon icon-small">
-                      <use href="#icon-heart"></use>
-                    </svg>
+                    <i class="fas fa-heart theme-icon-small"></i>
                   </span>
                   <span class="dec-heart">
-                    <svg class="svg-icon icon-small">
-                      <use href="#icon-heart"></use>
-                    </svg>
+                    <i class="fas fa-heart theme-icon-small"></i>
                   </span>
                 </div>
               </div>
@@ -727,19 +624,13 @@
               <div class="date-decoration bottom">
                 <div class="decorative-hearts">
                   <span class="dec-heart">
-                    <svg class="svg-icon icon-small">
-                      <use href="#icon-heart"></use>
-                    </svg>
+                    <i class="fas fa-heart theme-icon-small"></i>
                   </span>
                   <span class="dec-heart">
-                    <svg class="svg-icon icon-small">
-                      <use href="#icon-heart"></use>
-                    </svg>
+                    <i class="fas fa-heart theme-icon-small"></i>
                   </span>
                   <span class="dec-heart">
-                    <svg class="svg-icon icon-small">
-                      <use href="#icon-heart"></use>
-                    </svg>
+                    <i class="fas fa-heart theme-icon-small"></i>
                   </span>
                 </div>
               </div>

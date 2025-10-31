@@ -4,12 +4,16 @@ document.getElementById('nameForm').addEventListener('submit', function(e) {
     
     const guestName = document.getElementById('guestName').value.trim();
     const selectedSide = document.querySelector('input[name="side"]:checked');
+    const onlyWeddingCheckbox = document.getElementById('onlyWedding');
     
     if (guestName && selectedSide) {
         const side = selectedSide.value;
-        
+
         // Create URL with query parameters
-        const invitationUrl = `invitation.html?name=${encodeURIComponent(guestName)}&side=${side}`;
+        let invitationUrl = `invitation.html?name=${encodeURIComponent(guestName)}&side=${side}`;
+        if (onlyWeddingCheckbox && onlyWeddingCheckbox.checked) {
+            invitationUrl += `&onlyWedding=true`;
+        }
         
         // Add a fade out animation before redirect
         document.querySelector('.form-container').style.animation = 'fadeOut 0.5s ease';

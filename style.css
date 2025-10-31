@@ -51,7 +51,7 @@ img {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 24px;
 }
 
@@ -63,12 +63,12 @@ img {
   left: 3px;
   bottom: 3px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .toggle-slider {
-  background-color: #F88379;
+  background-color: #f88379;
 }
 
 input:checked + .toggle-slider:before {
@@ -4615,7 +4615,7 @@ body[data-side="groom"] .guest-name-highlight {
 }
 
 .grandparents-arch {
-    background: transparent;
+  background: transparent;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -4624,7 +4624,7 @@ body[data-side="groom"] .guest-name-highlight {
 
 .arch-beads {
   display: flex;
-    background: transparent;
+  background: transparent;
   gap: 5px;
 }
 
@@ -5167,36 +5167,36 @@ body[data-side="groom"] .guest-name-highlight {
 
 /* Family Slide Styles */
 .family-page {
-    text-align: center;
-    width: 100%;
-    padding: clamp(10px, 2vw, 15px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+  text-align: center;
+  width: 100%;
+  padding: clamp(10px, 2vw, 15px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .family-slide-name {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(1.8rem, 4vw, 2.5rem);
-  color: #2C2C2C;
+  color: #2c2c2c;
   margin-bottom: clamp(5px, 1.5vw, 8px);
   font-weight: 600;
   font-style: italic;
 }
 
 .family-slide-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(0.8rem, 2vw, 1rem);
-  color: #8B1A1D;
+  color: #8b1a1d;
   margin-bottom: clamp(10px, 2vw, 15px);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .family-slide-parents {
-  font-family: 'Lora', serif;
+  font-family: "Lora", serif;
   font-size: clamp(0.9rem, 2.2vw, 1.2rem);
   color: #555;
   line-height: 1.6;
@@ -5206,8 +5206,8 @@ body[data-side="groom"] .guest-name-highlight {
 
 /* Add a subtle animation for the family slides */
 .invitation-card .family-page > * {
-    animation: fadeInUp 0.8s ease forwards;
-    opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
 }
 
 .invitation-card .family-page .family-slide-name {
@@ -5222,23 +5222,22 @@ body[data-side="groom"] .guest-name-highlight {
   animation-delay: 0.6s;
 }
 
-  .couple-names-announcement {
-    gap: 15px;
-    flex-direction: column;
-  }
+.couple-names-announcement {
+  gap: 15px;
+  flex-direction: column;
+}
 
-  .wedding-symbol {
-    order: 2;
-  }
+.wedding-symbol {
+  order: 2;
+}
 
-  .groom-name-announcement {
-    order: 1;
-  }
+.groom-name-announcement {
+  order: 1;
+}
 
-  .bride-name-announcement {
-    order: 3;
-  }
-
+.bride-name-announcement {
+  order: 3;
+}
 
 .family-dual-sides {
   display: flex;
@@ -5513,7 +5512,7 @@ body[data-side="groom"] .guest-name-highlight {
     width: 90%;
     max-width: 800px;
   }
-  
+
   .couple-names {
     font-size: 3em;
   }
@@ -5645,4 +5644,79 @@ body[data-side="groom"] .guest-name-highlight {
 .heart-emoji .theme-icon-small:hover,
 .dec-heart .theme-icon-small:hover {
   color: #8b1a1d;
+}
+
+/* Cover overlay styles (new) */
+#coverOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 12, 10, 0.85),
+    rgba(10, 10, 12, 0.9)
+  );
+  z-index: 9999;
+  color: #fff;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition: transform 900ms cubic-bezier(0.2, 0.9, 0.3, 1), opacity 600ms ease;
+  will-change: transform, opacity;
+}
+
+#coverOverlay.opening {
+  pointer-events: none;
+}
+
+#coverOverlay.opened {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+
+.cover-card {
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+  max-width: 275px;
+  width: calc(100% - 40px);
+  transform-origin: center center;
+  animation: coverPop 500ms ease-out;
+}
+
+@keyframes coverPop {
+  from {
+    transform: scale(0.96) translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.open-invite-btn {
+  display: inline-block;
+  margin-top: 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 1) 0%,
+    rgba(255, 223, 125, 1) 100%
+  );
+  color: #221;
+  border: none;
+  padding: 12px 26px;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.18);
+  transform: translateY(0);
 }

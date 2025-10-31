@@ -12,7 +12,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body class="invitation-page">
-    <div class="stars"></div>
+
+    
+    <!-- COVER OVERLAY (NEW) -->
+<div id="coverOverlay" role="dialog" aria-modal="true" aria-label="Open invitation" tabindex="0">
+<div class="cover-card">
+<!-- <h1 class="cover-title">Open Invitation</h1> -->
+<!-- <p class="cover-sub">Tap the button to reveal the wedding invitation of <strong>Kanica &amp; Deep</strong></p> -->
+<button id="openInviteBtn" class="open-invite-btn" aria-describedby="coverDesc">Open Invitation</button>
+<div class="cover-flourish">✦ ✦ ✦</div>
+</div>
+</div>
+<div style="width: 90%;" id="invitationRoot">
+  <div class="stars"></div>
     <div class="stars2"></div>
     <div class="stars3"></div>
 
@@ -658,7 +670,98 @@
       <div class="petal petal7"></div>
       <div class="petal petal8"></div>
     </div>
+</div>
+  
+<!-- NEW: overlay control script -->
+<script>
+(function(){
+const overlay = document.getElementById('coverOverlay');
+const openBtn = document.getElementById('openInviteBtn');
+const invitationRoot = document.getElementById('invitationRoot');
+const BG_MUSIC_ID = 'bgMusic';
 
+
+// Initially mark invitation as hidden for assistive tech
+invitationRoot.setAttribute('aria-hidden', 'true');
+
+
+function revealInvitation() {
+if (!overlay) return;
+
+
+// Add a class to trigger overlay animation
+overlay.classList.add('opening');
+
+
+// play a small reveal micro-animation by toggling body attribute
+document.body.setAttribute('data-opened', 'true');
+
+
+// animate overlay up and fade
+requestAnimationFrame(() => {
+overlay.classList.add('opened');
+});
+
+
+// After animation completes, remove overlay from DOM for performance
+overlay.addEventListener('transitionend', function onEnd(e) {
+if (e.propertyName === 'transform' || e.propertyName === 'opacity') {
+overlay.removeEventListener('transitionend', onEnd);
+overlay.parentElement && overlay.parentElement.removeChild(overlay);
+
+
+// Unhide invitation for accessibility
+invitationRoot.removeAttribute('aria-hidden');
+
+
+// focus first interactive element inside invitation
+const focusEl = document.querySelector('.slide a, .open-invite-btn, button, [tabindex]');
+if (focusEl) focusEl.focus();
+
+
+// Start background music (try to play)
+const music = document.getElementById(BG_MUSIC_ID);
+if (music) {
+music.play().catch(() => {
+// autoplay might be blocked; attach a one-time click listener to play
+document.body.addEventListener('click', function playOnClick() {
+music.play();
+document.body.removeEventListener('click', playOnClick);
+}, { once: true });
+});
+}
+}
+});
+}
+
+
+openBtn.addEventListener('click', revealInvitation);
+
+
+// also allow keyboard activation (Enter / Space)
+openBtn.addEventListener('keydown', function(e){
+if (e.key === 'Enter' || e.key === ' ') {
+e.preventDefault(); revealInvitation();
+}
+});
+
+
+// allow clicking anywhere on overlay card to open
+overlay.addEventListener('click', function(e){
+if (e.target === overlay || e.target.closest('.cover-card')) {
+revealInvitation();
+}
+});
+
+
+// small accessibility: pressing Escape should close overlay (reveal invitation)
+document.addEventListener('keydown', function(e) {
+if ((e.key === 'Escape' || e.key === 'Enter') && document.getElementById('coverOverlay')) {
+revealInvitation();
+}
+});
+})();
+</script>
     <script src="invitation.js"></script>
   </body>
 </html>

@@ -186,6 +186,20 @@ window.addEventListener('DOMContentLoaded', function() {
     const guestSide = getQueryParameter('side') || 'bride';
     const onlyWedding = getQueryParameter('onlyWedding') === 'true';
     const guestNameElement = document.getElementById('guestName');
+   
+       // Initialize slide dots
+       const visibleSlides = getVisibleSlides();
+       const dotsContainer = document.querySelector('.slide-dots');
+       if (dotsContainer) {
+           dotsContainer.innerHTML = ''; // Clear existing dots
+           visibleSlides.forEach((_, index) => {
+               const dot = document.createElement('span');
+               dot.className = 'dot';
+               if (index === 0) dot.classList.add('active');
+               dot.onclick = () => goToSlide(index + 1);
+               dotsContainer.appendChild(dot);
+           });
+       }
     
     if (guestName) {
         guestNameElement.textContent = decodeURIComponent(guestName);
